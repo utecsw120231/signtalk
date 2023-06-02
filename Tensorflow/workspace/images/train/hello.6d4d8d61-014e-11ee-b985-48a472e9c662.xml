@@ -1,0 +1,26 @@
+<annotation>
+	<folder>collectedimages</folder>
+	<filename>hello.6d4d8d61-014e-11ee-b985-48a472e9c662.jpg</filename>
+	<path>C:\Users\Aaron\Desktop\Proyecto\SignTalk-main\RealTimeObjectDetection\Tensorflow\workspace\images\collectedimages\hello.6d4d8d61-014e-11ee-b985-48a472e9c662.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Hello</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>50</xmin>
+			<ymin>130</ymin>
+			<xmax>232</xmax>
+			<ymax>377</ymax>
+		</bndbox>
+	</object>
+</annotation>
