@@ -61,6 +61,10 @@ function App() {
     setNote('')
   }
 
+  const handleDeleteNotes = () => {
+    setSavedNotes([]);
+  };
+
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -128,7 +132,9 @@ function App() {
 
   return (
     <div className="App">
+    <h1>SIGNTALK</h1>
       <header className="App-header">
+  
         <Webcam
           ref={webcamRef}
           muted={true} 
@@ -160,21 +166,23 @@ function App() {
           }}
         />
       </header>
-      <h1>Voice Notes</h1>
+      <h1>CHAT</h1>
       <div className="container">
         <div className="box">
-          <h2>Current Note</h2>
-          {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
-          <button onClick={handleSaveNote} disabled={!note}>
-            Save Note
+          {isListening ? <span>🎙️</span> : <span>🛑</span>}
+          <button className="button" onClick={handleSaveNote} disabled={!note}>
+          <span className="button-icon">💾</span>Guardar
           </button>
-          <button onClick={() => setIsListening(prevState => !prevState)}>
-            Start/Stop
+          <button className="button" onClick={() => setIsListening(prevState => !prevState)}>
+            <span className="button-icon">🎙️</span>{isListening ? "Detener" : "Grabar"}
+          </button>
+          <button className="button" onClick={handleDeleteNotes}>
+            <span className="button-icon">🗑️</span>Borrar
           </button>
           <p>{note}</p>
         </div>
         <div className="box">
-          <h2>Notes</h2>
+          <h2>Mensajes</h2>
           {savedNotes.map(n => (
             <p key={n}>{n}</p>
           ))}
