@@ -1,0 +1,30 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
+
+
+import LandingPage from './pages/LandingPage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
+
+function App() {
+  return (
+    <div className="vh-100 gradient-custom">
+    <div className="container">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </BrowserRouter>
+
+    </div>
+    </div>
+  );
+}
+
+export default App
