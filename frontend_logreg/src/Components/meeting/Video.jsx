@@ -20,7 +20,7 @@ import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.css'
 import "./Video.css"
 
-const server_url = import.meta.env.VITE_SERVER_URL;
+const server_url = import.meta.env.VITE_SERVER_SCRIPT_URL;
 
 var connections = {}
 const peerConnectionConfig = {
