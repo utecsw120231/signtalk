@@ -453,7 +453,7 @@ class Video extends Component {
 		}
 		return (
 			<div>
-				{this.state.askForUsername === true ?
+				{/* {this.state.askForUsername === true ?
 					<div>
 						<div style={{background: "white", width: "30%", height: "auto", padding: "20px", minWidth: "400px",
 								textAlign: "center", margin: "auto", marginTop: "50px", justifyContent: "center"}}>
@@ -467,7 +467,7 @@ class Video extends Component {
 								borderStyle: "solid",borderColor: "#bdbdbd",objectFit: "fill",width: "60%",height: "30%"}}></video>
 						</div>
 					</div>
-					:
+					: */
 					<div>
 						<div className="btn-down" style={{ backgroundColor: "whitesmoke", color: "whitesmoke", textAlign: "center" }}>
 							<IconButton style={{ color: "#424242" }} onClick={this.handleVideo}>
