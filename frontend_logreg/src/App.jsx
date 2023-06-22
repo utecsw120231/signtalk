@@ -6,9 +6,11 @@ import './App.css'
 import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
 
 
-import LandingPage from './pages/LandingPage'
-import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
+import LandingPage from './Components/auth/LandingPage'
+import LoginPage from './Components/auth/LoginPage'
+import RegisterPage from './Components/auth/RegisterPage'
+import Video from './Components/meeting/Video'
+import Home from './Components/meeting/Home'
 
 function App() {
   return (
@@ -17,8 +19,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/auth/login" element={<LoginPage />} />
+          <Route path="/auth/register" element={<RegisterPage />} />
+          <Route path="/auth/login" element={<LoginPage />} />
+          <Route path="/meeting" element={<Home />} />
+          <Route path="/meeting/:url" element={<Video />} />
         </Routes>
       </BrowserRouter>
 

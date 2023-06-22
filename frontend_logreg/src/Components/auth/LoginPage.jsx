@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from 'axios';
 import './LoginPage.css'
 
 const API = import.meta.env.VITE_API_URL;
@@ -31,7 +30,7 @@ export default function LoginPage() {
         
         //MANEJO DE ERRORES DESDE EL FRONTEND, desde el backend resivimos el response con un atributo message
         if (data && !data.error && data.message=="Usuario encontrado") {
-            //navigate('/login');
+            navigate('/meeting');
         }
     }
 
@@ -62,7 +61,7 @@ export default function LoginPage() {
             <div className="button-form">
             <a id="submit" href="#" onClick={loginUser}>Iniciar Sesión</a> 
             <div id="register">
-                <p>Don't have an account? <a href="/register">Register</a></p>
+                <p>Don't have an account? <a href="/auth/register">Register</a></p>
             </div>
             </div>
         </form>

@@ -87,7 +87,7 @@ export default function RegisterPage() {
         <div className="button-form">
           <a id="submit" href="#" onClick={registerUser}>Submit</a> 
           <div id="login">
-            <p>Already have an account? <a href="/login">Login</a></p>
+            <p>Already have an account? <a href="/auth/login">Login</a></p>
           </div>
         </div>
       </form>
