@@ -37,7 +37,7 @@ export default function RegisterPage() {
         
         //MANEJO DE ERRORES DESDE EL FRONTEND, desde el backend resivimos el response con un atributo message
         if (data && !data.error && data.message=="Usuario creado exitosamente") {
-            navigate('/login');
+            navigate('/auth/login');
         }
     }
 
