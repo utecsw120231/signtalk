@@ -37,10 +37,14 @@ Todo la carpeta es un proyecto de **Node**. Recuerda que debes tener instalado `
 
 
 ## Carpeta: `frontend_logreg`
-1. **Paso 1**: De preferencia crear desde cero la carpeta **frontend_logreg**.
-2. **Paso 2**: Ir a la carpeta raiz y ejecutar el comando `yarn create vite`; crear el proyecto con el nombre **frontend_logreg** y seleccionar la opción **react**.
-3. **Paso 3**: En la carpeta **frontend_logreg**, ejecuta el comando `yarn` para instalar los requerimientos.
-4. **Paso 4**: Instala las siguientes dependencias:
+### Más rápido:
+1. Dentro de la carpeta **frontend_logreg**, ejecutar el comando `yarn install` para instalar los requerimientos básicos.
+
+
+### Desde Cero:
+1. Ir a la carpeta raiz y ejecutar el comando `yarn create vite`; crear el proyecto con el nombre **frontend_logreg** y seleccionar la opción **react**.
+2. En la carpeta **frontend_logreg**, ejecuta el comando `yarn` para instalar los requerimientos básicos.
+3. Instala las siguientes dependencias:
     ```
    yarn add @faker-js/faker --dev
    yarn add socket.io-client
@@ -50,9 +54,15 @@ Todo la carpeta es un proyecto de **Node**. Recuerda que debes tener instalado `
    yarn add react-router-dom
    yarn add @mui/material @emotion/react @emotion/styled
    yarn add @mui/icons-material
-   yarn add bootstrap```
-5. **Paso 5**: Copiar y reemplazar todos los archivos del repositorio de la carpeta **frontend_logreg**.
-6. Levantar el servidor con el comando `yarn dev`.
+   yarn add bootstrap
+   yarn add @material-tailwind/react
+    yarn add -D tailwindcss postcss autoprefixer
+   ```
+4. Ejecutar los siguientes comandos que crearán dos archivos: `tailwind.config.js` y `postcss.config.js`
+    ```
+    npx tailwindcss init -p
+    ```
+5. En los archivos `tailwind.config.js` y `postcss.config.js` copiar y pegar el código que se encuentra en el repositorio.
 
 ---------------------------------------------------------------
 
