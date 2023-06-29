@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Navbar } from "@/widgets/layout";
+import routes from "@/routes";
+import Dashboard from "./pages/meeting/Dashboard";
+import React, { lazy, Suspense } from "react";
+// Importa el componente Video utilizando lazy, para que su estilo o característica no afecte a la carga de la página home
+const Video = lazy(() => import("./pages/meeting/Video"));
 
-import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
-
-
-import LandingPage from './Components/auth/LandingPage'
-import LoginPage from './Components/auth/LoginPage'
-import RegisterPage from './Components/auth/RegisterPage'
-import Video from './Components/meeting/Video'
-import Home from './Components/meeting/Home'
 
 function App() {
-  return (
-    <div className="vh-100 gradient-custom">
-    <div className="container">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/auth/login" element={<LoginPage />} />
-          <Route path="/auth/register" element={<RegisterPage />} />
-          <Route path="/auth/login" element={<LoginPage />} />
-          <Route path="/meeting" element={<Home />} />
-          <Route path="/meeting/:url" element={<Video />} />
-        </Routes>
-      </BrowserRouter>
+  const shouldRenderNavbar = !window.location.pathname.startsWith("/meeting"); //window nos dice la ubicación actual del documento, pathname nos dice la ruta actual del documento y startsWith evalua si la cadena comienza con /meeting y devuelve true o false.
+  // Si la ruta actual del documento comienza con /meeting, shouldRenderNavbar será false, por lo que no se renderizará el Navbar.
 
-    </div>
-    </div>
+  return (
+    <>
+      {shouldRenderNavbar && (
+        <div className="container absolute left-2/4 z-10 mx-auto -translate-x-2/4 p-4">
+          <Navbar routes={routes} />
+        </div>
+      )}
+
+      <Routes>
+        {routes.map(({ path, element }, key) => (
+          <Route key={key} exact path={path} element={element} />
+        ))}
+        
+        <Route path="/meeting" element={<Dashboard />} />
+        <Route path="/meeting/:url" element={<Suspense fallback={<div>Loading...</div>}><Video /></Suspense>} />
+
+        <Route path="*" element={<Navigate to="/home" replace />} />
+      </Routes>
+    </>
   );
 }
 
-export default App
+export default App;

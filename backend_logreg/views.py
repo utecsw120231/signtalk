@@ -46,7 +46,7 @@ def signup():
             raise Exception("Ingrese un correo válido")
         if len(username) > 20:
             raise Exception("El nombre de usuario debe tener un máximo de 20 caracteres")
-        if len(password) <= 8:
+        if len(password) < 8:
             raise Exception("La contraseña debe tener un mínimo de 8 caracteres")
         #-----------------------------------------------------------------------
 
@@ -86,14 +86,14 @@ def login_user():
     response = {}
 
     try:
-        username = request.get_json()['username']
+        email = request.get_json()['email']
         password = request.get_json()['password']
 
         #Elijo la tabla con la que estoy trabajando
         table = dynamodb.Table('users')
 
         user_data = table.scan(
-            FilterExpression = Attr("username").eq(username)
+            FilterExpression = Attr("email").eq(email)
         )
         
         session['user_id'] = user_data["Items"][0]["user_id"] #Uso de cookies para almacenar datos del usuario

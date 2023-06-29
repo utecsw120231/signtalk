@@ -1,10 +1,28 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+/**
+=========================================================
+* Material Tailwind Dashboard React - v2.0.0
+=========================================================
+* Product Page: https://www.creative-tim.com/product/material-tailwind-dashboard-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/material-tailwind-dashboard-react/blob/main/LICENSE.md)
+* Coded by Creative Tim
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "@material-tailwind/react";
+import "./tailwind.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
