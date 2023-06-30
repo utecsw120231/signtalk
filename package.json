@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server/video_script.js",
-    "dev": "nodemon server/video_script.js",
+    "start": "node server_socket/video_script.js",
+    "dev": "nodemon server_socket/video_script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
