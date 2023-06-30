@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Navbar } from "@/widgets/layout";
 import routes from "@/routes";
 import Dashboard from "./pages/meeting/Dashboard";
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 // Importa el componente Video utilizando lazy, para que su estilo o característica no afecte a la carga de la página home
 const Video = lazy(() => import("./pages/meeting/Video"));
 

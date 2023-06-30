@@ -101,7 +101,7 @@ def login_user():
         if user_data["Items"] == 0 or password != user_data["Items"][0]["password"]:
             error_uc = True
             raise Exception
-    
+        print(session["user_id"]) 
 
     except Exception as e:
         if error_uc:

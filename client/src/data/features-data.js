@@ -7,24 +7,24 @@ import {
 export const featuresData = [
   {
     color: "blue",
-    title: "Awarded Agency",
+    title: "Comunicación sin límites",
     icon: StarIcon,
     description:
-      "Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.",
+      "Ofrecemos videoconferencias sin límites, rompiendo barreras físicas y fomentando la colaboración global.",
   },
   {
     color: "red",
-    title: "Free Revisions",
+    title: "Inclusión",
     icon: ArrowPathIcon,
     description:
-      "Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious.",
+      "Detección y reconocimiento del lenguaje de señas para personas sordas o con discapacidad auditiva. Valoramos la diversidad lingüística y promovemos la igualdad de participación.",
   },
   {
     color: "teal",
-    title: "Verified Company",
+    title: "Construyendo puentes",
     icon: FingerPrintIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "Derribamos barreras, celebramos la diversidad y construimos puentes de conexión genuina. Únete y experimenta la magia de la comunicación.",
   },
 ];
 

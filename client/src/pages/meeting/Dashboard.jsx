@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Input, Button, IconButton } from '@material-tailwind/react';
 import 'tailwindcss/tailwind.css';
 
@@ -27,7 +27,7 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div className="container mx-auto p-4">
-				<div class="text-sm bg-white w-10% text-center mx-auto mb-10">
+				<div className="text-sm bg-white w-10% text-center mx-auto mb-10">
 				<span className="text-sm bg-white w-20 text-center mr-2">Source code:</span>
 				<IconButton className="bg-[#333333] rounded hover:shadow-[#333333]/20 focus:shadow-[#333333]/20 active:shadow-[#333333]/10"
 				onClick={() => window.open("https://github.com/0x5eba/Video-Meeting", "_blank")}>

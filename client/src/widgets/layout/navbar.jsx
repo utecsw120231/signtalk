@@ -71,11 +71,11 @@ export function Navbar({ brandName, routes, action }) {
         <div className="hidden lg:block">{navList}</div>
         <div className="hidden gap-2 lg:flex">
           <a
-            href="https://www.material-tailwind.com/blocks?ref=mtkr"
+            href="https://github.com/utecsw120231/signtalk"
             target="_blank"
           >
             <Button variant="text" size="sm" color="white" fullWidth>
-              pro version
+              REPOSITORIO 
             </Button>
           </a>
           {React.cloneElement(action, {
@@ -121,14 +121,14 @@ export function Navbar({ brandName, routes, action }) {
 }
 
 Navbar.defaultProps = {
-  brandName: "Material Tailwind React",
+  brandName: "Sign Talk",
   action: (
     <a
-      href="https://www.creative-tim.com/product/material-tailwind-kit-react"
+      href="https://utec.edu.pe/"
       target="_blank"
     >
       <Button variant="gradient" size="sm" fullWidth>
-        free download
+        UTEC
       </Button>
     </a>
   ),

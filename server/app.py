@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_session import Session
 from flask_dynamo import Dynamo
 from flask_cors import CORS
 import key_config as keys
@@ -12,6 +13,8 @@ def generate_secret_key():
 
 app = Flask(__name__)
 app.secret_key = generate_secret_key()
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
 
 # Configuración de CORS
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
