@@ -13,6 +13,7 @@ import {
 import { SimpleFooter } from "@/widgets/layout";
 
 const API = import.meta.env.VITE_API_URL;
+let username_user;
 
 export function SignIn() {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ export function SignIn() {
   const loginUser = async (e)  => {
       e.preventDefault();//Para que no se recarge la pagina y la terminal
 
-      console.log(API);//Para comprobar que si escucha a mi API
+      // console.log(API);//Para comprobar que si escucha a mi API
 
       const response = await fetch(`${API}/login`, {
           method: 'POST',
@@ -39,7 +40,8 @@ export function SignIn() {
       console.log(data);
       
       //MANEJO DE ERRORES DESDE EL FRONTEND, desde el backend resivimos el response con un atributo message
-      if (data && !data.error && data.message=="Usuario encontrado") {
+      if (data && !data.error && data.exist==true) {
+          // username_user = data.username;
           navigate('/meeting');
       }
   }
@@ -68,7 +70,9 @@ export function SignIn() {
               label="Email" 
               size="lg" 
               onChange={(e) => setEmail(e.target.value)} 
-              value={email}/>
+              value={email}
+              autoComplete="on"
+            />  
             <Input
               variant="standard"
               type="password"

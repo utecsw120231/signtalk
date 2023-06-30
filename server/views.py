@@ -101,8 +101,7 @@ def login_user():
         if user_data["Items"] == 0 or password != user_data["Items"][0]["password"]:
             error_uc = True
             raise Exception
-        
-        response['message'] = "Usuario encontrado"
+    
 
     except Exception as e:
         if error_uc:
