@@ -34,8 +34,8 @@ export const routes = [
   },
   {
     icon: DocumentTextIcon,
-    name: "Docs",
-    href: "https://www.material-tailwind.com/docs/react/installation",
+    name: "SignTalk",
+    href: "http://localhost:3000/",
     target: "_blank",
     element: "",
   },
