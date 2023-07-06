@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
 import { faker } from '@faker-js/faker';
+import RecordRTC from 'recordrtc';
 
 import { IconButton, Badge, Input, Button } from '@mui/material';
 import VideocamIcon from '@mui/icons-material/Videocam';
@@ -22,6 +23,7 @@ import "./Video.css"
 
 const server_url = import.meta.env.VITE_SERVER_SCRIPT_URL;
 
+
 var connections = {}
 const peerConnectionConfig = {
 	'iceServers': [
@@ -34,11 +36,12 @@ var socketId = null
 var elms = 0
 
 class Video extends Component {
+	
 	constructor(props) {
 		super(props)
 
 		this.localVideoref = React.createRef()
-
+		this.recordRTC = null;
 		this.videoAvailable = false
 		this.audioAvailable = false
 
@@ -53,11 +56,45 @@ class Video extends Component {
 			newmessages: 0,
 			askForUsername: true,
 			username: faker.internet.userName(),
+			recording : false,
+			buttonText: 'Iniciar Grabación',
 		}
 		connections = {}
 
 		this.getPermissions()
 	}
+
+	startRecording = () => {
+		if (navigator.mediaDevices.getDisplayMedia) {
+		  navigator.mediaDevices.getDisplayMedia({ video: true })
+			.then((stream) => {
+			  this.recordRTC = RecordRTC(stream, {
+				type: 'video'
+			  });
+			  this.recordRTC.startRecording();
+			  this.setState({ recording: true, buttonText: 'Detener Grabación' });
+			})
+			.catch((error) => {
+			  console.error('Error al acceder a la pantalla de visualización:', error);
+			});
+		} else {
+		  console.error('La API getDisplayMedia no es compatible en este navegador.');
+		}
+	  };
+  
+	stopRecording = () => {
+		if (this.recordRTC) {
+		  this.recordRTC.stopRecording(() => {
+			const blob = this.recordRTC.getBlob();
+			const downloadLink = document.createElement('a');
+			downloadLink.href = URL.createObjectURL(blob);
+			downloadLink.download = 'grabacion.webm';
+			downloadLink.click();
+			this.recordRTC = null;
+			this.setState({ recording: false, buttonText: 'Iniciar Grabación' });
+		  });
+		}
+	  };
 
 	getPermissions = async () => {
 		try{
@@ -443,6 +480,7 @@ class Video extends Component {
 	}
 
 	render() {
+		const { recording, buttonText } = this.state;
 		if(this.isChrome() === false){
 			return (
 				<div style={{background: "white", width: "30%", height: "auto", padding: "20px", minWidth: "400px",
@@ -493,6 +531,14 @@ class Video extends Component {
 									<ChatIcon />
 								</IconButton>
 							</Badge>
+						</div>
+
+						<div>
+							<Button
+								variant="contained"color="primary"onClick={this.state.recording ? this.stopRecording : this.startRecording}>
+								{this.state.buttonText}
+							</Button>
+							<button onClick={this.state.recording ? this.stopRecording : this.startRecording}></button>
 						</div>
 
 						<Modal show={this.state.showModal} onHide={this.closeChat} style={{ zIndex: "999999" }}>
